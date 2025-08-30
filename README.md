@@ -1,58 +1,65 @@
-# Question Example
+# Bug Bounty Royale – Final (C)
 
-Here’s a sample Markdown file with a **big code block** to test rendering.
+Below are 5 codeblocks. Each contains hidden bugs.  
+Your task:  
+1. Identify and fix the bug(s).  
+2. Run the corrected code.  
+3. Submit the **final correct output**.  
 
 ---
 
-## Python Example
+## Q1.  
+The following program mixes pre/post increment operations.  
+What will be the final values of `a` and `b` when fixed?
 
-```python
-# This is a sample Python program to demonstrate a large code block
+```c
+#include <stdio.h>
 
-import random
-import time
+int main() {
+    int a = 5;
+    int b = a++ + ++a * 2 - --a;
+    printf("%d %d\n", a, b);
+    return 0;
+}
+```
 
-class Player:
-    def __init__(self, name, health=100):
-        self.name = name
-        self.health = health
-    
-    def attack(self, enemy):
-        damage = random.randint(5, 20)
-        enemy.health -= damage
-        print(f"{self.name} attacks {enemy.name} for {damage} damage!")
+## Q2.
+This recursive Fibonacci function is intended to also count how many times it was called.
+Fix the logic so both Fibonacci result and call count display correctly, answer what the calls count will be.
 
-    def heal(self):
-        heal_points = random.randint(10, 25)
-        self.health += heal_points
-        print(f"{self.name} heals for {heal_points} health!")
+```c
+#include <stdio.h>
 
-    def is_alive(self):
-        return self.health > 0
+int fib(int n) {
+    static int calls = 0;
+    calls++;
+    if (n <= 1)
+        return n;
+    return fib(n-1) + fib(n-2);
+    printf("Function called %d times\n", calls);
+}
 
-def battle(player1, player2):
-    turn = 0
-    while player1.is_alive() and player2.is_alive():
-        time.sleep(0.5)  # add delay for realism
-        attacker = player1 if turn % 2 == 0 else player2
-        defender = player2 if turn % 2 == 0 else player1
+int main() {
+    int result = fib(5);
+    printf("Fibonacci(5): %d\n", result);
+    return 0;
+}
+```
 
-        # Random choice: attack or heal
-        if random.choice([True, False]):
-            attacker.attack(defender)
-        else:
-            attacker.heal()
+## Q3.  
+The following program intends to print the squares of numbers in an array.  
+Fix the logic so that the correct squares are printed.
 
-        print(f"Status: {player1.name}({player1.health}) - {player2.name}({player2.health})")
-        print("-" * 40)
+```c
+#include <stdio.h>
 
-        turn += 1
+int main() {
+    int arr[3] = {0, 1, 2};
+    int *p = arr;
+    for(int i=0; i<=3; i++) {
+        printf("%d ", *(p+i) * *(p+i));
+    }
+    return 0;
+}
 
-    winner = player1 if player1.is_alive() else player2
-    print(f"\n🏆 {winner.name} wins the battle! 🏆")
-
-# Example run
-if __name__ == "__main__":
-    alice = Player("Alice")
-    bob = Player("Bob")
-    battle(alice, bob)
+```
