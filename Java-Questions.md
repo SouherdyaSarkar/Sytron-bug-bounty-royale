@@ -1,4 +1,4 @@
-# Bug Bounty Royale – Final (C)
+# Bug Bounty Royale – Final (Java)
 
 Below are 5 codeblocks. Each contains hidden bugs.  
 Your task:  
