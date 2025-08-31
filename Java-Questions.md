@@ -65,22 +65,18 @@ public class Test3 {
 ## Q4. Fix the code to provide the expected output - 
 
 ```
-Exception caught: / by zero
+28
 ```
 
 ```java
-public class Test4 {
+public class Test8 {
     public static void main(String[] args) {
-        int[] arr = {5, 0, 10};
-        try {
-            int result = arr[0] / arr[1];
-            System.out.println(result);
-        } catch (ArithmeticException e) {
-            System.out.println("Exception caught: " + e.getMessage());
-        }
+        int a = 5;
+        int b = 10;
+        int c = a++ + ++b + b--;
+        System.out.println(c);
     }
 }
-
 ```
 
 ## Q5. Fix the code to provide the expected output - 
