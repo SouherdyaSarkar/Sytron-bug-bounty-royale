@@ -1,3 +1,12 @@
+# Bug Bounty Royale - Final(Python)
+
+Below are 5 codeblocks. Each contains hidden bugs.
+Your task:
+
+Identify and fix the bug(s).
+Run the corrected code.
+Submit the final correct output.
+
 ## Qn 1 : Debug the code so it outputs Alice’s average and Bob’s average
 
 ```python
