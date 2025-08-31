@@ -63,3 +63,66 @@ int main() {
 }
 
 ```
+
+## Q4.
+Fix the code so that the output becomes:
+
+```
+Unique Elements: 5 8 11
+```
+
+```c
+#include <stdio.h>
+
+int main() {
+    int arr[] = {4, 5, 9, 4, 9, 8, 7, 7, 11};
+    int n = 9;
+
+    for(int i = 0; i <= n; i++) {
+        int count = 0;
+        for(int j = 0; j < n; j++) {
+            if(arr[i] = arr[j]) {
+                count++;
+            }
+        }
+        if(count == 1) {
+            printf("%d ", arr[i]);
+        }
+    }
+    return 0;
+}
+
+````
+
+## Q5. 
+Fix the code so that the output becomes:
+
+```
+First Non-Repeating Character = g
+
+```
+
+```c
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[] = "engineering";
+    int n = strlen(str);
+
+    for(int i = 0; i <= n; i++) {
+        int count = 0;
+        for(int j = 0; j < n; j++) {
+            if(str[i] = str[j]) {
+                count++;
+            }
+        }
+        if(count == 1) {
+            printf("First Non-Repeating Character = %c\n", str[i]);
+            break;
+        }
+    }
+    return 0;
+}
+
+```
