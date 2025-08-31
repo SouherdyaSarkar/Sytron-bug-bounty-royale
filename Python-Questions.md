@@ -36,6 +36,7 @@ print(s2.name, "average:", s2.average())
 
 ```python
 class BankAccount:
+    balance = 0
     def __init__(self, owner, balance):
         self.owner = owner
         self.balance = balance
@@ -44,7 +45,7 @@ class BankAccount:
         self.balance += amount
 
     def withdraw(self, amount):
-        if self.balance >= amount:
+        if self.balance > amount:
             self.balance -= amount
         else:
             print("Insufficient funds")
@@ -69,7 +70,7 @@ def read_file(filename):
     f = open(filename, "r")
     lines = f.readlines()
     for i in range(len(lines)):
-        print("Line", i, ":", lines[i].strip())
+        print("Line", i, ":", line.strip())
     f.close()
 
 # sample.txt content:
@@ -95,13 +96,11 @@ class Employee:
         self.salary = salary
 
     def show(self):
-        print("Employee:", self.name, "Salary:", self.salary)
+        print("Employee:", name, "Salary:", salary)
 
 class Manager(Employee):
-    def __init__(self, name, salary, team=None):
+    def __init__(self, name, salary, team=[]):
         super().__init__(name, salary)
-        if team is None:
-            team = []
         self.team = team
 
     def add_member(self, emp):
@@ -124,23 +123,21 @@ m.show_team()
 ## Q5. Fix the code to print the following output
 
 ```
-Result is 5.0
-Division by zero!
+HI
+HI
+HI
 ```
 
 ```python
-def safe_divide(func):
-    def wrapper(x, y):
-        try:
-            return func(x, y)
-        except ZeroDivisionError:
-            print("Division by zero!")
+def repeat(func):
+    def wrapper(n, msg):
+        for i in range(n):
+            func(msg)
     return wrapper
 
-@safe_divide
-def divide(x, y, msg="Result is"):
-    print(msg, x / y)
+@repeat
+def greet(message="Hello"):
+    print(message.upper())
 
-divide(10, 2)
-divide(5, 0)
+greet(3, "hi")
 ```
