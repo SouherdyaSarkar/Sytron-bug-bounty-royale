@@ -11,8 +11,7 @@ Your task:
 ```python
 class Student:
     def __init__(self, name, marks=None):
-        if marks is None:
-            marks = []
+
         self.name = name
         self.marks = marks
 
